@@ -41,8 +41,10 @@ public class PSBaseInfo implements BaseEntity {
 
 
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;

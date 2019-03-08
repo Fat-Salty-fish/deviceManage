@@ -24,14 +24,16 @@ public class DgiSaleDetail implements BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
-    private String saleId;//销售id
-    private String dgiId;//数采仪id
+    private Integer saleId;//销售id
+    private Integer dgiId;//数采仪id
     private Date saleDate;//出库日期
 
 
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;

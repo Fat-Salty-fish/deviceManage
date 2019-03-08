@@ -30,9 +30,9 @@ public class ExceptionHandlerController {
      * @param e 处以上异常外的其他异常
      * @return  对截获的异常进行处理统一返回
      */
-    @ExceptionHandler
-    @ResponseBody
-    public Object ExceptionHandler(Exception e){
-        return ResultBean.error(2,e);
-    }
+//    @ExceptionHandler
+//    @ResponseBody
+//    public Object ExceptionHandler(Exception e){
+//        return ResultBean.error(2,e);
+//    }
 }

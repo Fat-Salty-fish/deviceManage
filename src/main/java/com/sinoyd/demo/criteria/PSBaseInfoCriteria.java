@@ -19,7 +19,6 @@ public class PSBaseInfoCriteria {
     private String psName;  //企业名称
     private Integer psType; //企业类型 1位生产厂商 2为客户
 
-    private Integer pageNumber = 0;  //页码 默认第0页
-    private Integer pageSize = 10;  //每页数据量 默认为10
-
+    private Integer page = 1;  //页码 默认第1页
+    private Integer rows = 10;  //每页数据量 默认为10
 }

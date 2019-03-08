@@ -25,7 +25,7 @@ public class PSBaseInfoController extends BaseController {
      * 创建一个新的企业信息
      *
      * @param companyInfo 传入的企业基础信息
-     * @return 返回结构化信息 并不包括传入的企业基础信息 默认创建成功
+     * @return 返回状态码以及消息 不返回传入的企业基础信息 状态码为0表示新增成功
      */
     @PostMapping("")
     public Object create(@RequestBody PSBaseInfo companyInfo) {
@@ -37,7 +37,7 @@ public class PSBaseInfoController extends BaseController {
      * 根据企业id获取企业信息
      *
      * @param companyInfoId 传入的企业id
-     * @return 返回结构化信息
+     * @return 返回状态码、消息以及单个企业的信息
      */
     @GetMapping("/{id}")
     public Object findById(@PathVariable("id") Integer companyInfoId) {
@@ -48,7 +48,7 @@ public class PSBaseInfoController extends BaseController {
      * 根据搜索条件进行模糊搜索以及分页搜索
      *
      * @param criteria 搜索条件 企业名称以及企业类型
-     * @return 返回结构化信息
+     * @return 返回状态码、消息、总数、当前页数以及多条企业信息
      */
     @GetMapping("")
     public Object findByPage(PSBaseInfoCriteria criteria) {
@@ -59,7 +59,7 @@ public class PSBaseInfoController extends BaseController {
      * 更新企业信息
      *
      * @param companyInfo 传入的企业信息 包括企业id 若没有id则会进行报错
-     * @return 返回结构化信息 并不包括传入的企业基础信息 默认更新成功
+     * @return 返回状态码、消息 不返回传入的企业信息 状态码为0表示更新成功
      */
     @PutMapping("")
     public Object update(@RequestBody PSBaseInfo companyInfo) {
@@ -71,7 +71,7 @@ public class PSBaseInfoController extends BaseController {
      * 删除企业信息
      *
      * @param companyInfoIds 以集合的形式传入要删除的企业信息id
-     * @return 返回结构化数据 包括删除成功的数量
+     * @return 返回状态码、消息以及删除的信息的条数
      */
     @DeleteMapping("")
     public Object delete(@RequestBody Collection<Integer> companyInfoIds) {

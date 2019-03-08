@@ -21,7 +21,7 @@ import java.util.List;
  * @create 2019-02-27 13:55
  */
 @Repository
-public interface PSBaseInfoRepository extends PagingAndSortingRepository<PSBaseInfo,Integer>, JpaSpecificationExecutor<PSBaseInfo> {
+public interface PSBaseInfoRepository extends JpaRepository<PSBaseInfo,Integer>{
     List<PSBaseInfo> findAllByIdIn(Collection<Integer> ids);
     Page<PSBaseInfo> findAllByPsNameLikeAndPsType(String name, Integer type,Pageable pageable);
     Page<PSBaseInfo> findAllByPsType(Integer type,Pageable pageable);

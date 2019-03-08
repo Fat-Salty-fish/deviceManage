@@ -24,7 +24,7 @@ public class DgiSale implements BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
-    private String psId;//购买企业id
+    private Integer psId;//购买企业id
     private String operator;//出库经办人
     private String saleContract;//合同编号
     private Integer totalAmount;//合同总需求量
@@ -36,12 +36,23 @@ public class DgiSale implements BaseEntity {
         return this.getTotalAmount() - this.getOutAmount();
     }
 
+    @Transient
+    @Access(AccessType.PROPERTY)
+    private Integer difference ;
+
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;
     @LastModifiedDate
     private Date modifyDate;
+
+    public Integer getDifference() {
+        this.difference = this.totalAmount - this.outAmount;
+        return difference;
+    }
 }

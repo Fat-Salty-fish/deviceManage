@@ -1,6 +1,7 @@
 package com.sinoyd.demo.resultBean;
 
 import com.sinoyd.frame.base.util.PageBean;
+import org.springframework.data.domain.Page;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +29,16 @@ public class ResultBean {
         return result;
     }
 
+    public static  Map<String,Object> success(Page page){
+        Map<String,Object> result = new HashMap<>();
+        result.put("code",0);
+        result.put("msg","success");
+        result.put("total",page.getTotalElements());
+        result.put("page",page.getTotalPages());
+        result.put("data",page.getContent());
+        return result;
+    }
+
     public static  Map<String, Object> success(PageBean data) {
         Map<String, Object> result = new HashMap<>();
         result.put("code", 0);
@@ -45,4 +56,6 @@ public class ResultBean {
         result.put("data",null);
         return result;
     }
+
+
 }

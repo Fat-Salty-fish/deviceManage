@@ -24,17 +24,22 @@ public class ProductBatch implements BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
-    private String batchNumber;//批号名字
+    private String batchNumber;//数采仪批号 应为4位
     private String dgiName;//数采仪名字
-    private String psId;//企业id
+    private Integer psId;//企业id
     private Integer status = 1;//0停用,1启用
 
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;
     @LastModifiedDate
     private Date modifyDate;
+
+    @Transient
+    private PSBaseInfo psBaseInfo;
 }

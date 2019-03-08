@@ -24,7 +24,7 @@ public class DgiTest implements BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
-    private String dgiId;//数采仪id
+    private Integer dgiId;//数采仪id
     private String operator;//测试人
     private Date testDate;//测试日期
     private Integer result;//测试结果(1.通过;2.不通过)
@@ -32,8 +32,10 @@ public class DgiTest implements BaseEntity {
     private String testExplain;//测试说明
 
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;

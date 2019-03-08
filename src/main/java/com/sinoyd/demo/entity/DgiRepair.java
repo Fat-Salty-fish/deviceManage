@@ -26,7 +26,7 @@ public class DgiRepair implements BaseEntity {
     private Integer id;
     private Date repairDate;//维修日期
     private String operator;//维修人
-    private String dgiId;//数采仪id
+    private Integer dgiId;//数采仪id
     private Integer result;//维修结果(1.通过;2.不通过)
     @Column(length = 4000)
     private String destroyCause;//维修原因
@@ -34,8 +34,10 @@ public class DgiRepair implements BaseEntity {
     private String repairExplain;//维修说明
 
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;

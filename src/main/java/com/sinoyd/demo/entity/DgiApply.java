@@ -26,15 +26,17 @@ public class DgiApply implements BaseEntity {
     private Integer id;
     private Date applyDate;//领用日期
     private String operator;//领用人
-    private String dgiId;//数采仪id
+    private Integer dgiId;//数采仪id
     private Integer statusBefore;//领用之前的状态
     private Integer applyPurpose;//领用目的 1-测试 2-维修
     @Column(length = 4000)
     private String remark;//备注
 
     @CreatedBy
+    @Column(updatable = false)
     private String creator;
     @CreatedDate
+    @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
     private String modifier;

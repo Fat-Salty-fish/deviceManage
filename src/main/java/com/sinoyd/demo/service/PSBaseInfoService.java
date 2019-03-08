@@ -25,8 +25,6 @@ import java.util.List;
  */
 @Service
 public class PSBaseInfoService {
-    @Autowired
-    private CommonRepository commonRepository;
 
     @Autowired
     private PSBaseInfoRepository psBaseInfoRepository;
@@ -36,23 +34,22 @@ public class PSBaseInfoService {
     }
 
     public PSBaseInfo findById(Integer companyId) {
-        return psBaseInfoRepository.findOne(companyId);
+        return psBaseInfoRepository.findById(companyId).orElse(null);
     }
 
-    public Object findByPage(PSBaseInfoCriteria criteria) {
-
+    public Page findByPage(PSBaseInfoCriteria criteria) {
         //分页条件 PageRequest
-        PageRequest pageRequest = new PageRequest(criteria.getPageNumber(), criteria.getPageSize(), null);
+        PageRequest pageRequest = PageRequest.of(criteria.getPage()-1, criteria.getRows());
         //查询条件
         String psName = criteria.getPsName();
         Integer psType = criteria.getPsType();
-        if(StringUtils.isNotEmpty(psName)){
+        if (StringUtils.isNotEmpty(psName)) {
             return psBaseInfoRepository.findAllByPsNameLikeAndPsType("%" + criteria.getPsName() + "%", criteria.getPsType(), pageRequest);
+        } else if (psType != null) {
+            return psBaseInfoRepository.findAllByPsType(psType, pageRequest);
+        } else {
+            return psBaseInfoRepository.findAll(pageRequest);
         }
-        else {
-            return psBaseInfoRepository.findAllByPsType(psType,pageRequest);
-        }
-
     }
 
     @Transactional
@@ -69,6 +66,4 @@ public class PSBaseInfoService {
         int deleteNum = (int) companyInfos.stream().filter(company -> !company.getIsDeleted()).peek(company -> company.setIsDeleted(true)).count();
         return deleteNum;
     }
-
-
 }
