@@ -28,7 +28,7 @@ public class PSBaseInfo implements BaseEntity {
     private String psAddress;//详细地址
     private String contactMan;//联系人
     private String contactTelPhone;//联系方式
-    private String corporationCode;//企业编号
+
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
