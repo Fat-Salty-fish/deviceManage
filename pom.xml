@@ -40,6 +40,22 @@
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+        </dependency>
+
         <!--提供@Getter注解以及@Setter注解的包-->
         <dependency>
             <groupId>org.projectlombok</groupId>

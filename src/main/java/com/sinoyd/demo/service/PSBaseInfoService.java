@@ -43,12 +43,14 @@ public class PSBaseInfoService {
         //查询条件
         String psName = criteria.getPsName();
         Integer psType = criteria.getPsType();
-        if (StringUtils.isNotEmpty(psName)) {
-            return psBaseInfoRepository.findAllByPsNameLikeAndPsType("%" + criteria.getPsName() + "%", criteria.getPsType(), pageRequest);
+        if (StringUtils.isNotEmpty(psName)&&psType!=null) {
+            return psBaseInfoRepository.findAllByPsNameLikeAndPsTypeAndIsDeleted("%" + criteria.getPsName() + "%", criteria.getPsType(),false, pageRequest);
         } else if (psType != null) {
-            return psBaseInfoRepository.findAllByPsType(psType, pageRequest);
+            return psBaseInfoRepository.findAllByPsTypeAndIsDeleted(psType,false, pageRequest);
+        } else if(StringUtils.isNotEmpty(psName)){
+            return psBaseInfoRepository.findAllByPsNameLikeAndIsDeleted("%" + criteria.getPsName() +"%",false,pageRequest);
         } else {
-            return psBaseInfoRepository.findAll(pageRequest);
+            return psBaseInfoRepository.findAllByIsDeleted(false,pageRequest);
         }
     }
 

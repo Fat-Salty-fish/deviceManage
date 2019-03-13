@@ -23,6 +23,8 @@ import java.util.List;
 @Repository
 public interface PSBaseInfoRepository extends JpaRepository<PSBaseInfo,Integer>{
     List<PSBaseInfo> findAllByIdIn(Collection<Integer> ids);
-    Page<PSBaseInfo> findAllByPsNameLikeAndPsType(String name, Integer type,Pageable pageable);
-    Page<PSBaseInfo> findAllByPsType(Integer type,Pageable pageable);
+    Page<PSBaseInfo> findAllByPsNameLikeAndPsTypeAndIsDeleted(String name, Integer type,Boolean isDeleted,Pageable pageable);
+    Page<PSBaseInfo> findAllByPsTypeAndIsDeleted(Integer type,Boolean isDeleted,Pageable pageable);
+    Page<PSBaseInfo> findAllByIsDeleted(Boolean isDeleted,Pageable pageable);
+    Page<PSBaseInfo> findAllByPsNameLikeAndIsDeleted(String name,Boolean isDeleted,Pageable pageable);
 }

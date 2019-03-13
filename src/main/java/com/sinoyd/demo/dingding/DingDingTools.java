@@ -90,6 +90,14 @@ public class DingDingTools {
      * @return
      */
     public static String getUserId(String code,String accessToken){
+        if (code==null){
+            System.out.println("code为空");
+            throw new NullPointerException("员工code为空 此值必须传入");
+        }
+        if(accessToken==null){
+            System.out.println("access_token为空");
+            throw new NullPointerException("access_token为空 此值必须传入");
+        }
         //创建一个httpClient请求实体
         CloseableHttpClient client = HttpClients.createDefault();
         //创建一个httpResponse响应实体
@@ -111,13 +119,17 @@ public class DingDingTools {
                     buffer.append(line);
                 }
                 JSONObject jsonObject = JSON.parseObject(buffer.toString());
-                return jsonObject.getString("userid");
+                String userId = jsonObject.getString("userid");
+                return userId;
             }
         } catch (URISyntaxException e) {
+            System.out.println("发生了uri错误");
             e.printStackTrace();
         } catch (ClientProtocolException e) {
+            System.out.println("发生了client错误");
             e.printStackTrace();
         } catch (IOException e) {
+            System.out.println("发生了io错误");
             e.printStackTrace();
         }
         return null;

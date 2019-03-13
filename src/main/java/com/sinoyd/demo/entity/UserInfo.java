@@ -2,6 +2,7 @@ package com.sinoyd.demo.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -37,4 +38,10 @@ public class UserInfo implements Serializable {
     private Date hiredDate;     //入职时间
     private String jobnumber;   //员工工号
     private Boolean isSenior;   //是否是高管
+
+    @Override
+    public String toString() {
+        return "userid:" + this.userid +
+                " username:" + this.name;
+    }
 }
