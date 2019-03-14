@@ -23,7 +23,7 @@ public class MyAuditorAware implements AuditorAware {
         if (authentication == null || !authentication.isAuthenticated()) {
             return null;
         }
-        Optional<String> result = new Optional<>(((UserInfo) authentication.getPrincipal()).getName());
+        Optional<String> result = Optional.ofNullable(((UserInfo)authentication.getPrincipal()).getName());
         return result;
     }
 }

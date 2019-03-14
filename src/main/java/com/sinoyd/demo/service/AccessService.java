@@ -3,6 +3,7 @@ package com.sinoyd.demo.service;
 import com.sinoyd.demo.dingding.DingDingTools;
 import com.sinoyd.demo.entity.UserInfo;
 import com.sinoyd.demo.token.MyToken;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,9 @@ public class AccessService {
     //若无Token则向钉钉发起请求 请求用户信息
     //此函数为用户首次登陆时 向钉钉发起请求的情况
     public UserInfo findUser(String code, HttpServletResponse response) {
+        if(StringUtils.isBlank(code)){
+            throw new NullPointerException("传入的code无效 无法访问 请传入有效的code值");
+        }
         String accessToken = DingDingTools.getAccessToken();            //获取access_token
         String userId = DingDingTools.getUserId(code, accessToken);     //获取userId
         UserInfo user = DingDingTools.getUserInfo(userId,accessToken);  //获取userInfo

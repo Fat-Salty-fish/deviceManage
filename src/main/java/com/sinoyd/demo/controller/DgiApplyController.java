@@ -2,6 +2,7 @@ package com.sinoyd.demo.controller;
 
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sinoyd.demo.entity.DgiApply;
+import com.sinoyd.demo.entity.DgiInfo;
 import com.sinoyd.demo.resultBean.ResultBean;
 import com.sinoyd.demo.service.DgiApplyService;
 import com.sinoyd.frame.base.controller.BaseController;
@@ -21,7 +22,7 @@ public class DgiApplyController extends BaseController {
 
     /**
      * 新增数采仪领用信息
-     * @param dgiApply  数采仪领用信息
+     * @param dgiApply数采仪领用信息
      * @return  返回状态码、消息 不包括数采仪领用信息 状态码值为0表示新增成功
      */
     @PostMapping("")

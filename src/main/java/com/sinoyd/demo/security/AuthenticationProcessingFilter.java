@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 public class AuthenticationProcessingFilter extends AbstractAuthenticationProcessingFilter {
     //设置截获的路径
-    protected AuthenticationProcessingFilter() {
+    AuthenticationProcessingFilter() {
         super(new AntPathRequestMatcher("/verify"));
     }
     //截获请求之后获取获取token信息 封装成AuthenticationToken对象

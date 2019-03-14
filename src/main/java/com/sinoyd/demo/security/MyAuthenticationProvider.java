@@ -9,6 +9,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -21,8 +23,12 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    private final Map<String, SimpleGrantedAuthority> authorityMap = new ConcurrentHashMap<>();
+    private static final Map<String, SimpleGrantedAuthority> authorityMap = new ConcurrentHashMap<>();
 
+    static{
+        authorityMap.put("1",new SimpleGrantedAuthority("all"));
+        authorityMap.put("2",new SimpleGrantedAuthority("test"));
+    }
 
     //在这个方法里对token进行验证
     @Override
@@ -42,8 +48,9 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
             String tokenToVerify = (String)redisTemplate.opsForValue().get("userId:"+userId);
             //获取到的token与存在redis中的token相同
             if(tokenToVerify!=null && tokenToVerify==token){
-                return new AuthenticationToken(userInfo.getUserid(),userInfo.getName(),userInfo.getPosition(),null);
+                return new AuthenticationToken(userInfo.getUserid(),userInfo.getName(),userInfo.getPosition(), Arrays.asList(authorityMap.get("1")));
             }
+            //如果不同 则返回空
             else{
                 return null;
             }
