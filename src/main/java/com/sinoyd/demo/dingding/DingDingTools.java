@@ -163,6 +163,7 @@ public class DingDingTools {
                     stringBuffer.append(line);
                 }
                 JSONObject jsonObject = JSON.parseObject(stringBuffer.toString());
+//                System.out.println(jsonObject);
                 UserInfo userInfo = JSON.toJavaObject(jsonObject,UserInfo.class);
                 return userInfo;
             }

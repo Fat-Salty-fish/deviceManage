@@ -26,8 +26,10 @@ public class DgiSaleDetail implements BaseEntity {
     private Integer id;
     private Integer saleId;//销售id
     private Integer dgiId;//数采仪id
+    @CreatedDate
+    @Column(updatable = false)
     private Date saleDate;//出库日期
-
+    private Integer statusBefore;//数采仪之前的状态
 
     @CreatedBy
     @Column(updatable = false)

@@ -28,8 +28,7 @@ public class DgiInfoController extends BaseController {
      */
     @PostMapping("")
     public Object create(@RequestBody DgiInfo dgiInfo){
-        dgiInfoService.create(dgiInfo);
-        return ResultBean.success();
+        return ResultBean.success(dgiInfoService.create(dgiInfo));
     }
 
     /**
@@ -77,11 +76,12 @@ public class DgiInfoController extends BaseController {
 
     /**
      * 根据id删除数采仪信息
-     * @param ids   要删除的数采仪id
+     * @param dgiId  要删除的数采仪id
      * @return  返回状态码、消息以及删除的数采仪信息的条数
      */
     @DeleteMapping("")
-    public Object delete(@RequestBody Collection<Integer> ids){
-        return ResultBean.success(dgiInfoService.delete(ids));
+    public Object delete(@RequestParam("dgiId")Integer dgiId){
+        dgiInfoService.delete(dgiId);
+        return ResultBean.success();
     }
 }

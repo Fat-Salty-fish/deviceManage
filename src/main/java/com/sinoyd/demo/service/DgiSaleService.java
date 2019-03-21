@@ -21,11 +21,13 @@ public class DgiSaleService {
     @Autowired
     private DgiInfoRepository dgiInfoRepository;
 
+    //新建一个销售合同
     public DgiSale create(DgiSale dgiSale){
         return dgiSaleRepository.save(dgiSale);
     }
 
+    //根据销售合同的id获取销售合同的信息
     public DgiSale findById(Integer id){
-        return dgiSaleRepository.findById(id).orElse(null);
+        return dgiSaleRepository.getOne(id);
     }
 }

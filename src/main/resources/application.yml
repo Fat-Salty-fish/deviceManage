@@ -30,6 +30,7 @@ server:
   tomcat:
     uri-encoding: utf-8
 
+
 #
 #security:
 #  basic:

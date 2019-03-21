@@ -27,4 +27,5 @@ public class AccessController extends BaseController {
     public Object login(@RequestParam("code")String code,HttpServletResponse response){
         return accessService.findUser(code,response);
     }
+
 }

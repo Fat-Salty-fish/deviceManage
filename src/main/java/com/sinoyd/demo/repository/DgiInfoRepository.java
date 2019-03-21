@@ -17,7 +17,7 @@ import java.util.Collection;
  * @auther 李忠杰
  * @create 2019-03-04 10:16
  */
-public interface DgiInfoRepository extends PagingAndSortingRepository<DgiInfo, Integer>, JpaSpecificationExecutor<DgiInfo> {
+public interface DgiInfoRepository extends PagingAndSortingRepository<DgiInfo, Integer>, JpaSpecificationExecutor<DgiInfo>,JpaRepository<DgiInfo,Integer> {
     Integer deleteAllByIdIn(Collection<Integer> ids);
 
     DgiInfo findByDgiCode(String code);
@@ -30,7 +30,8 @@ public interface DgiInfoRepository extends PagingAndSortingRepository<DgiInfo, I
 //            "or ( :dgiNameOrMainBoardModel = ''))" +
 //            " and (a.psId = :psId or :psId = null)" +
 //            " group by a.batchId,a.mainBoardModel")
-    @Query(value = "select new com.sinoyd.demo.entity.DgiInfo(a.batchId,a.mainBoardModel,a.psId,count(a),b.dgiName,c.psName) " +
+    @Query(value =
+            "select new com.sinoyd.demo.entity.DgiInfo(a.batchId,a.mainBoardModel,a.psId,count(a),b.dgiName,c.psName) " +
             "from DgiInfo as a, ProductBatch as b, PSBaseInfo as c " +
             "where a.batchId = b.id and a.psId = c.id " +
             "and a.status = 1 " +

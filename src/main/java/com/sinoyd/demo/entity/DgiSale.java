@@ -25,6 +25,8 @@ public class DgiSale implements BaseEntity {
     @GeneratedValue
     private Integer id;
     private Integer psId;//购买企业id
+    @CreatedBy
+    @Column(updatable = false)
     private String operator;//出库经办人
     private String saleContract;//合同编号
     private Integer totalAmount;//合同总需求量

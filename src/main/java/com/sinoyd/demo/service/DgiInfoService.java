@@ -2,14 +2,21 @@ package com.sinoyd.demo.service;
 
 import com.sinoyd.demo.criteria.DgiInfoCriteria;
 import com.sinoyd.demo.entity.DgiInfo;
+import com.sinoyd.demo.entity.ProductBatch;
 import com.sinoyd.demo.repository.DgiInfoRepository;
+import com.sinoyd.demo.repository.ProductBatchRepository;
+import net.bytebuddy.pool.TypePool;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * @Description
@@ -18,47 +25,72 @@ import java.util.Collection;
  */
 @Service
 public class DgiInfoService {
+
     @Autowired
     private DgiInfoRepository dgiInfoRepository;
 
+    @Autowired
+    private ProductBatchRepository productBatchRepository;
+
+
     //在添加数采仪时设置主板型号以及批次id
-    public void create(DgiInfo dgiInfo) {
-        dgiInfo.setMainBoardModel(dgiInfo.getDgiCode().substring(0, 4));
-        dgiInfoRepository.save(dgiInfo);
+    public DgiInfo create(DgiInfo dgiInfo) {
+        String batchCode = productBatchRepository.getOne(dgiInfo.getBatchId()).getBatchNumber();
+        if (!dgiInfo.getDgiCode().substring(4, 8).equals(batchCode)) {
+            throw new IllegalArgumentException("输入的批次号和已知的批次号不符");
+        }
+        if (dgiInfoRepository.findByDgiCode(dgiInfo.getDgiCode()) == null) {
+            dgiInfo.setMainBoardModel(dgiInfo.getDgiCode().substring(0, 4));
+            dgiInfoRepository.save(dgiInfo);
+            DgiInfo result = dgiInfoRepository.findByDgiCode(dgiInfo.getDgiCode());
+            result.setBatchCode(batchCode);
+            return result;
+        } else {
+            throw new IllegalArgumentException("此数采仪已经存在 无法重复添加");
+        }
     }
 
+    //根据id或dgiCode获取数采仪全部信息 如果输入的参数为11为 则认为传入的是dgiCode 否则认为传入的是id
+    //返回给前端时同时要注入数采仪名称与数采仪批号
     public DgiInfo findByCode(String idOrCode) {
-        if (idOrCode.length()==11){
-            return dgiInfoRepository.findByDgiCode(idOrCode);
+        DgiInfo result ;
+        ProductBatch batch;
+        if (idOrCode.length() == 11) {
+            result = dgiInfoRepository.findByDgiCode(idOrCode);
+        } else {
+            result = dgiInfoRepository.findById(Integer.getInteger(idOrCode)).orElse(null);
         }
-        else {
-            return dgiInfoRepository.findById(Integer.getInteger(idOrCode)).orElse(null);
-        }
+        batch = productBatchRepository.getOne(result.getBatchId());
+        result.setBatchCode(batch.getBatchNumber());
+        result.setDgiName(batch.getDgiName());
+        return result;
     }
 
     //获取数采仪的分组信息以及对应分组信息的数量
     public Page<DgiInfo> findByGroup(DgiInfoCriteria criteria) {
         PageRequest pageRequest = PageRequest.of(criteria.getPage() - 1, criteria.getRows());
-        Page<DgiInfo> page = dgiInfoRepository.findAllByGroup("%" + criteria.getDgiNameOrMainBoardModel() + "%",criteria.getPsId(), pageRequest);
+        Page<DgiInfo> page = dgiInfoRepository.findAllByGroup("%" + criteria.getDgiNameOrMainBoardModel() + "%", criteria.getPsId(), pageRequest);
         return page;
     }
 
     //获取某个批号以及主板对应的数采仪详细信息
     public Page<DgiInfo> findDetailByPage(DgiInfoCriteria criteria) {
-        PageRequest pageRequest = PageRequest.of(criteria.getPage()-1,criteria.getRows());
+        PageRequest pageRequest = PageRequest.of(criteria.getPage() - 1, criteria.getRows());
         Page<DgiInfo> page = dgiInfoRepository.findDetailInfo(criteria.getPsId(), criteria.getMainBoardModel(),
-                                                              criteria.getDgiCodeOrBatchNumber(),criteria.getStartTime(),
-                                                              criteria.getEndTime(),criteria.getStatus(),pageRequest);
+                criteria.getDgiCodeOrBatchNumber(), criteria.getStartTime(),
+                criteria.getEndTime(), criteria.getStatus(), pageRequest);
         return page;
     }
 
+    //更新数采仪信息
     @Transactional
     public void update(DgiInfo dgiInfo) {
         dgiInfoRepository.save(dgiInfo);
     }
 
+    //删除某个数采仪信息
     @Transactional
-    public Integer delete(Collection<Integer> ids) {
-        return dgiInfoRepository.deleteAllByIdIn(ids);
+    public void delete(Integer dgiId) {
+        dgiInfoRepository.deleteById(dgiId);
     }
 }

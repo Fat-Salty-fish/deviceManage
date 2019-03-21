@@ -1,6 +1,7 @@
 package com.sinoyd.demo.controller;
 
 import com.sinoyd.demo.resultBean.ResultBean;
+import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -23,6 +24,18 @@ public class ExceptionHandlerController {
     @ResponseBody
     public Object nullPointerExceptionHandler(NullPointerException e){
         return ResultBean.error(1,e);
+    }
+
+    @ExceptionHandler
+    @ResponseBody
+    public Object MalformedJwtExceptionHandler(MalformedJwtException e){
+        return ResultBean.error(1, "token解析错误 请先登录获取token");
+    }
+
+    @ExceptionHandler
+    @ResponseBody
+    public Object IllegalArgumentHandler(IllegalArgumentException e){
+        return ResultBean.error(2,e);
     }
 
     /**

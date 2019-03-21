@@ -41,6 +41,9 @@ public class DgiInfo implements BaseEntity {
     @Transient
     private String dgiName; //数采仪名称 用于前端展示
 
+    @Transient
+    private String batchCode;   //数采仪批次号 用于前端展示
+
 
     public DgiInfo(Integer batchId, String mainBoardModel, Integer psId, Long count, String dgiName, String psName) {
         this.batchId = batchId;

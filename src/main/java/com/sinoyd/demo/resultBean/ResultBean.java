@@ -57,5 +57,12 @@ public class ResultBean {
         return result;
     }
 
+    public static Map<String,Object> error(int code,String message){
+        Map<String,Object> result = new HashMap<>();
+        result.put("code", code);
+        result.put("msg", message);
+        result.put("data", null);
+        return result;
+    }
 
 }

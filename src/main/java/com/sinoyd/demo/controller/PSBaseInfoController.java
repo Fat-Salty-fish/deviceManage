@@ -6,6 +6,7 @@ import com.sinoyd.demo.entity.PSBaseInfo;
 import com.sinoyd.demo.service.PSBaseInfoService;
 import com.sinoyd.frame.base.controller.BaseController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;

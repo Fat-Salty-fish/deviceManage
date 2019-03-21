@@ -24,7 +24,11 @@ public class DgiApply implements BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
+    @CreatedDate
+    @Column(updatable = false)
     private Date applyDate;//领用日期
+    @CreatedBy
+    @Column(updatable = false)
     private String operator;//领用人
     private Integer dgiId;//数采仪id
     private Integer statusBefore;//领用之前的状态

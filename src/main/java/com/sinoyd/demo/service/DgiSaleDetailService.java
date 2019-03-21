@@ -32,7 +32,7 @@ public class DgiSaleDetailService {
     //判断合同的需求数量是否已经满足 如未满足则可以继续添加 如果已满足则不可以继续添加
     //继续添加时先将数采仪设备修改 将合同内已出库的数量加一 再保存一条销售详细记录
     @Transactional
-    public void create(DgiSaleDetail dgiSaleDetail) {
+    public DgiSaleDetail create(DgiSaleDetail dgiSaleDetail) {
         //获取获取数采仪信息
         DgiInfo device = dgiInfoRepository.findById(dgiSaleDetail.getDgiId()).orElseThrow(IllegalArgumentException::new);
         //获取销售合同信息
@@ -43,12 +43,17 @@ public class DgiSaleDetailService {
                 Integer outAmount = sale.getOutAmount();
                 outAmount +=1;
                 sale.setOutAmount(outAmount);
-                dgiSaleDetailRepository.save(dgiSaleDetail);    //保存出库信息
+                return dgiSaleDetailRepository.save(dgiSaleDetail);    //保存出库信息
             } else {
                 throw new IllegalArgumentException("此数采仪的状态不为测试通过 无法修改状态");
             }
         }else {
             throw new IllegalArgumentException("此合同已经达到需求 无法继续出库");
         }
+    }
+
+    //根据销售详情id删除某个销售详情
+    public void delete(Integer saleDetailId){
+        dgiSaleDetailRepository.deleteById(saleDetailId);
     }
 }

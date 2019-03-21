@@ -39,4 +39,5 @@ public class DgiSaleController extends BaseController {
     public Object findBySaleId(@PathVariable("id") Integer id) {
         return ResultBean.success(dgiSaleService.findById(id));
     }
+
 }
