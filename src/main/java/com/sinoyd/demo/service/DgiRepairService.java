@@ -26,16 +26,16 @@ public class DgiRepairService {
     //只能对维修中的数采仪进行维修
     //只能设置数采仪的状态为维修成功与报废
     @Transactional
-    public DgiRepair create(DgiRepair dgiRepair){
+    public DgiRepair create(DgiRepair dgiRepair) {
         DgiInfo device = dgiInfoRepository.findById(dgiRepair.getDgiId()).orElseThrow(IllegalArgumentException::new);
-        if(5==device.getStatus()){              //数采仪的状态为维修中
-            if(1==dgiRepair.getResult()){       //维修结果为维修成功
+        if (5 == device.getStatus()) {              //数采仪的状态为维修中
+            if (1 == dgiRepair.getResult()) {       //维修结果为维修成功
                 device.setStatus(6);            //设置数采仪状态为维修成功
-            }else if(2==dgiRepair.getResult()){ //维修结果为维修失败
+            } else if (2 == dgiRepair.getResult()) { //维修结果为维修失败
                 device.setStatus(8);            //设置数采仪状态为已报废
             }
             return dgiRepairRepository.save(dgiRepair);
-        }else{
+        } else {
             throw new IllegalArgumentException("此数采仪的状态不为维修中 无法修改状态");
         }
     }
@@ -49,8 +49,8 @@ public class DgiRepairService {
     @Transactional
     public void delete(Integer repairId) {
         DgiRepair dgiRepair = dgiRepairRepository.getOne(repairId);
-        if(dgiRepair == null){
-            return ;
+        if (dgiRepair == null) {
+            throw new NullPointerException("未能查询到id为" + repairId + "的维修信息");
         }
         DgiInfo dgiInfo = dgiInfoRepository.getOne(dgiRepair.getDgiId());
         dgiInfo.setStatus(dgiRepair.getStatusBefore());
@@ -58,7 +58,7 @@ public class DgiRepairService {
     }
 
     //根据维修信息id获取详细的维修信息
-    public DgiRepair findOne(Integer repairId){
+    public DgiRepair findOne(Integer repairId) {
         return dgiRepairRepository.getOne(repairId);
     }
 }

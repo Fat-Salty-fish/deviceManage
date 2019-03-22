@@ -2,8 +2,10 @@ package com.sinoyd.demo.service;
 
 import com.sinoyd.demo.criteria.DgiInfoCriteria;
 import com.sinoyd.demo.entity.DgiInfo;
+import com.sinoyd.demo.entity.PSBaseInfo;
 import com.sinoyd.demo.entity.ProductBatch;
 import com.sinoyd.demo.repository.DgiInfoRepository;
+import com.sinoyd.demo.repository.PSBaseInfoRepository;
 import com.sinoyd.demo.repository.ProductBatchRepository;
 import net.bytebuddy.pool.TypePool;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +34,9 @@ public class DgiInfoService {
     @Autowired
     private ProductBatchRepository productBatchRepository;
 
+    @Autowired
+    private PSBaseInfoRepository psBaseInfoRepository;
+
 
     //在添加数采仪时设置主板型号以及批次id
     public DgiInfo create(DgiInfo dgiInfo) {
@@ -55,14 +60,17 @@ public class DgiInfoService {
     public DgiInfo findByCode(String idOrCode) {
         DgiInfo result ;
         ProductBatch batch;
+        PSBaseInfo psBaseInfo ;
         if (idOrCode.length() == 11) {
             result = dgiInfoRepository.findByDgiCode(idOrCode);
         } else {
             result = dgiInfoRepository.findById(Integer.getInteger(idOrCode)).orElse(null);
         }
         batch = productBatchRepository.getOne(result.getBatchId());
+        psBaseInfo = psBaseInfoRepository.getOne(result.getPsId());
         result.setBatchCode(batch.getBatchNumber());
         result.setDgiName(batch.getDgiName());
+        result.setPsName(psBaseInfo.getPsName());
         return result;
     }
 

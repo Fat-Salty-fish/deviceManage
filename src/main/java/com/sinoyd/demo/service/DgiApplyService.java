@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.beans.Transient;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class DgiApplyService {
     @Transactional
     public DgiApply create(DgiApply apply) {
         DgiInfo device = dgiInfoRepository.findById(apply.getDgiId()).orElseThrow(IllegalArgumentException::new);
-        if (1 == device.getStatus()) {
+        if (Arrays.asList(1,3,6).contains(device.getStatus())) {
             if (1 == apply.getApplyPurpose()) { //如果领用目的为测试
                 device.setStatus(2);        //设置设备状态为测试中
             } else if (2 == apply.getApplyPurpose()) {//如果领用目的为维修
@@ -50,7 +51,8 @@ public class DgiApplyService {
     public void delete(Integer applyId) {
         DgiApply dgiApply = dgiApplyRepository.getOne(applyId);
         if (dgiApply == null) {
-            return;
+//            System.out.println("未能找到id为"+applyId+"的申领信息");
+            throw new NullPointerException("未能查询到id为" + applyId + "的申领信息");
         }
         DgiInfo dgiInfo = dgiInfoRepository.getOne(dgiApply.getDgiId());
         dgiInfo.setStatus(dgiApply.getStatusBefore());
@@ -62,7 +64,7 @@ public class DgiApplyService {
         return dgiApplyRepository.findAllByDgiId(dgiId);
     }
 
-    public DgiApply findOne(Integer applyId){
+    public DgiApply findOne(Integer applyId) {
         return dgiApplyRepository.getOne(applyId);
     }
 }

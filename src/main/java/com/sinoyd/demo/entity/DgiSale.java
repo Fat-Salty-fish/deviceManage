@@ -8,10 +8,12 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.domain.Auditable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 @Table(name = "DgiSale")//数采仪销售单
@@ -40,12 +42,12 @@ public class DgiSale implements BaseEntity {
 
     @Transient
     @Access(AccessType.PROPERTY)
-    private Integer difference ;
+    private Integer difference;
 
     @CreatedBy
     @Column(updatable = false)
     private String creator;
-    @CreatedDate
+    @CreatedDate()
     @Column(updatable = false)
     private Date createDate;
     @LastModifiedBy
@@ -57,4 +59,5 @@ public class DgiSale implements BaseEntity {
         this.difference = this.totalAmount - this.outAmount;
         return difference;
     }
+
 }

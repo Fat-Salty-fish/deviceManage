@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @create 2019-03-05 16:43
  */
 @RestController
-@RequestMapping("/api/bas/deviceManagement/device/sale")
+@RequestMapping("/api/bas/deviceManagement/device")
 public class DgiSaleController extends BaseController {
     @Autowired
     private DgiSaleService dgiSaleService;
@@ -24,7 +24,7 @@ public class DgiSaleController extends BaseController {
      * @param dgiSale 销售合同信息
      * @return 返回状态码、消息、同时返回合同信息 因为在下一个接口中需要此合同信息
      */
-    @PostMapping("")
+    @PostMapping("/sale")
     public Object create(@RequestBody DgiSale dgiSale) {
         return ResultBean.success(dgiSaleService.create(dgiSale));
     }
@@ -35,9 +35,19 @@ public class DgiSaleController extends BaseController {
      * @param id 合同id
      * @return
      */
-    @GetMapping("/{id}")
+    @GetMapping("/sale/{id}")
     public Object findBySaleId(@PathVariable("id") Integer id) {
         return ResultBean.success(dgiSaleService.findById(id));
+    }
+
+    /**
+     * 根据企业信息获取企业下的所有合同信息
+     * @param psId 企业id
+     * @return
+     */
+    @GetMapping("/sale")
+    public Object findByPsId(@RequestParam("psId")Integer psId){
+        return ResultBean.success(dgiSaleService.findByPsId(psId));
     }
 
 }

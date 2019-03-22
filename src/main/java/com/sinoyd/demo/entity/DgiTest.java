@@ -34,7 +34,7 @@ public class DgiTest implements BaseEntity {
     private Integer result;//测试结果(1.通过;2.不通过)
     @Column(length = 4000)
     private String testExplain;//测试说明
-    private Integer statusBefore;   //之前的状态 在删除时起到作用
+    private Integer statusBefore;//之前的状态 在删除时起到作用
 
     @CreatedBy
     @Column(updatable = false)

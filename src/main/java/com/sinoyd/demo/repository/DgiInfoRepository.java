@@ -34,7 +34,7 @@ public interface DgiInfoRepository extends PagingAndSortingRepository<DgiInfo, I
             "select new com.sinoyd.demo.entity.DgiInfo(a.batchId,a.mainBoardModel,a.psId,count(a),b.dgiName,c.psName) " +
             "from DgiInfo as a, ProductBatch as b, PSBaseInfo as c " +
             "where a.batchId = b.id and a.psId = c.id " +
-            "and a.status = 1 " +
+            "and a.status in (1,3,4,6) " +
             "and (( a.mainBoardModel like :dgiNameOrMainBoardModel or b.dgiName like :dgiNameOrMainBoardModel) " +
             "or ( :dgiNameOrMainBoardModel = '')) " +
             "and (a.psId = :psId or :psId = null) " +

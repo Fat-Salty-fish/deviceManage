@@ -25,7 +25,7 @@ public class DgiRepair implements BaseEntity {
     @GeneratedValue
     private Integer id;
     @CreatedDate
-    @Column(updatable = false)
+    @Column(updatable        = false)
     private Date repairDate;//维修日期
     @CreatedBy
     @Column(updatable = false)

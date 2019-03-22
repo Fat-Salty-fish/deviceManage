@@ -3,10 +3,12 @@ package com.sinoyd.demo.service;
 import com.sinoyd.demo.entity.DgiSale;
 import com.sinoyd.demo.repository.DgiInfoRepository;
 import com.sinoyd.demo.repository.DgiSaleRepository;
+import com.sinoyd.frame.base.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @Description
@@ -23,11 +25,20 @@ public class DgiSaleService {
 
     //新建一个销售合同
     public DgiSale create(DgiSale dgiSale){
+        DgiSale sale = dgiSaleRepository.findBySaleContract(dgiSale.getSaleContract());
+        if (sale!=null){
+            return sale;
+        }
         return dgiSaleRepository.save(dgiSale);
     }
 
     //根据销售合同的id获取销售合同的信息
     public DgiSale findById(Integer id){
         return dgiSaleRepository.getOne(id);
+    }
+
+    //根据公司psid获取公司下的全部合同信息
+    public List<DgiSale> findByPsId(Integer psId) {
+        return dgiSaleRepository.findAllByPsId(psId);
     }
 }

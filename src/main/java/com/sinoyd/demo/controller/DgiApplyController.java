@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class DgiApplyController extends BaseController {
     @Autowired
     private DgiApplyService dgiApplyService;
+
     /**
      * 新增数采仪领用信息
      *
@@ -32,6 +33,7 @@ public class DgiApplyController extends BaseController {
 
     /**
      * 根据id获取某个数采仪的申领信息
+     *
      * @param dgiId 数采仪id
      * @return 返回状态码、消息、以及数采仪申领信息
      */
@@ -42,22 +44,24 @@ public class DgiApplyController extends BaseController {
 
     /**
      * 根据applyId删除某个领用信息并将数采仪状态修改为之前的状态
+     *
      * @param applyId
-     * @return  返回状态码、消息 状态码为0认为删除成功
+     * @return 返回状态码、消息 状态码为0认为删除成功
      */
     @DeleteMapping("/apply")
-    public Object delete(@RequestParam("applyId")Integer applyId){
+    public Object delete(@RequestParam("applyId") Integer applyId) {
         dgiApplyService.delete(applyId);
         return ResultBean.success();
     }
 
     /**
      * 根据applyId获取某个领用信息
-     * @param applyId   领用信息id
-     * @return  返回状态码、消息、申领信息
+     *
+     * @param applyId 领用信息id
+     * @return 返回状态码、消息、申领信息
      */
     @GetMapping("**/apply/{applyId}")
-    public Object findOne(@PathVariable("applyId")Integer applyId){
+    public Object findOne(@PathVariable("applyId") Integer applyId) {
         return ResultBean.success(dgiApplyService.findOne(applyId));
     }
 }

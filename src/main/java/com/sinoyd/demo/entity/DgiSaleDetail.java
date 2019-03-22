@@ -1,5 +1,6 @@
 package com.sinoyd.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sinoyd.frame.base.entity.BaseEntity;
 import lombok.Getter;
@@ -12,7 +13,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Table(name = "DgiSaleDetail")//数采仪销售明细
 @Entity
@@ -21,15 +21,32 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EntityListeners(AuditingEntityListener.class)
 public class DgiSaleDetail implements BaseEntity {
+
     @Id
     @GeneratedValue
     private Integer id;
+
     private Integer saleId;//销售id
     private Integer dgiId;//数采仪id
     @CreatedDate
     @Column(updatable = false)
     private Date saleDate;//出库日期
     private Integer statusBefore;//数采仪之前的状态
+
+    @Override
+    public String toString() {
+        return "DgiSaleDetail{" +
+                "id=" + id +
+                ", saleId=" + saleId +
+                ", dgiId=" + dgiId +
+                ", saleDate=" + saleDate +
+                ", statusBefore=" + statusBefore +
+                ", creator='" + creator + '\'' +
+                ", createDate=" + createDate +
+                ", modifier='" + modifier + '\'' +
+                ", modifyDate=" + modifyDate +
+                '}';
+    }
 
     @CreatedBy
     @Column(updatable = false)

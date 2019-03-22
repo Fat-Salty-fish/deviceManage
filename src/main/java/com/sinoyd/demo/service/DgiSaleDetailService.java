@@ -34,26 +34,43 @@ public class DgiSaleDetailService {
     @Transactional
     public DgiSaleDetail create(DgiSaleDetail dgiSaleDetail) {
         //获取获取数采仪信息
-        DgiInfo device = dgiInfoRepository.findById(dgiSaleDetail.getDgiId()).orElseThrow(IllegalArgumentException::new);
+        DgiInfo device = dgiInfoRepository.getOne(dgiSaleDetail.getDgiId());
+        if (device == null) {
+            throw new IllegalArgumentException("输入的数采仪id为空 请重新输入");
+        }
         //获取销售合同信息
-        DgiSale sale = dgiSaleRepository.findById(dgiSaleDetail.getSaleId()).orElseThrow(IllegalArgumentException::new);
-        if (sale.getDifference()>0) {
-            if (4 == device.getStatus()) {          //数采仪的状态为测试通过
+        DgiSale sale = dgiSaleRepository.getOne(dgiSaleDetail.getSaleId());
+        if (sale == null) {
+            throw new IllegalArgumentException("输入的合同id为空 请重新输入");
+        }
+        if (sale.getDifference() > 0) {
+            if (4 == device.getStatus()) {      //数采仪的状态为测试通过
                 device.setStatus(7);            //设置数采仪的状态为已出库
                 Integer outAmount = sale.getOutAmount();
-                outAmount +=1;
+                outAmount += 1;
                 sale.setOutAmount(outAmount);
                 return dgiSaleDetailRepository.save(dgiSaleDetail);    //保存出库信息
             } else {
                 throw new IllegalArgumentException("此数采仪的状态不为测试通过 无法修改状态");
             }
-        }else {
+        } else {
             throw new IllegalArgumentException("此合同已经达到需求 无法继续出库");
         }
     }
 
-    //根据销售详情id删除某个销售详情
-    public void delete(Integer saleDetailId){
+    //根据销售详情id删除某个销售详情 同时要恢复数采仪状态并且将已出库数量减一
+    @Transactional
+    public void delete(Integer saleDetailId) {
+        DgiSaleDetail dgiSaleDetail = dgiSaleDetailRepository.getOne(saleDetailId);
+        if (dgiSaleDetail == null) {
+            throw new NullPointerException("未能查询到id为" + saleDetailId + "的销售详细信息");
+        }
+        DgiSale dgiSale = dgiSaleRepository.getOne(dgiSaleDetail.getSaleId());
+        DgiInfo dgiInfo = dgiInfoRepository.getOne(dgiSaleDetail.getDgiId());
+        Integer outAmount = dgiSale.getOutAmount();
+        outAmount -= 1;
+        dgiSale.setOutAmount(outAmount);
+        dgiInfo.setStatus(dgiSaleDetail.getStatusBefore());
         dgiSaleDetailRepository.deleteById(saleDetailId);
     }
 }
