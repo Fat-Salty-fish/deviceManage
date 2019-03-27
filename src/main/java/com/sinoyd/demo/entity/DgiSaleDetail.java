@@ -23,7 +23,7 @@ import java.util.Date;
 public class DgiSaleDetail implements BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Integer saleId;//销售id
@@ -32,6 +32,21 @@ public class DgiSaleDetail implements BaseEntity {
     @Column(updatable = false)
     private Date saleDate;//出库日期
     private Integer statusBefore;//数采仪之前的状态
+
+    @Transient
+    private String psName;//企业名称
+    @Transient
+    private String psRegion;//所在地区
+    @Transient
+    private String psAddress;//详细地址
+    @Transient
+    private String contactMan;//联系人
+    @Transient
+    private Long contactTelPhone;//联系方式
+    @Transient
+    private String operator;//出库经办人
+    @Transient
+    private String saleContract;//合同编号
 
     @Override
     public String toString() {

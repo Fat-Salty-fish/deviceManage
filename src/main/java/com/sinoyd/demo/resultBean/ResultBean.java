@@ -1,5 +1,6 @@
 package com.sinoyd.demo.resultBean;
 
+import com.sinoyd.demo.entity.DgiInfo;
 import com.sinoyd.frame.base.util.PageBean;
 import org.springframework.data.domain.Page;
 
@@ -11,6 +12,7 @@ import java.util.Map;
  * @auther 李忠杰
  * @create 2019-02-27 14:06
  */
+
 public class ResultBean {
 
     public static Map<String, Object> success() {

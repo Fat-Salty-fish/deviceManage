@@ -22,7 +22,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 public class DgiApply implements BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @CreatedDate
     @Column(updatable = false)

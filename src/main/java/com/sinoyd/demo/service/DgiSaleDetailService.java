@@ -3,13 +3,16 @@ package com.sinoyd.demo.service;
 import com.sinoyd.demo.entity.DgiInfo;
 import com.sinoyd.demo.entity.DgiSale;
 import com.sinoyd.demo.entity.DgiSaleDetail;
+import com.sinoyd.demo.entity.PSBaseInfo;
 import com.sinoyd.demo.repository.DgiInfoRepository;
 import com.sinoyd.demo.repository.DgiSaleDetailRepository;
 import com.sinoyd.demo.repository.DgiSaleRepository;
+import com.sinoyd.demo.repository.PSBaseInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @Description
@@ -26,6 +29,9 @@ public class DgiSaleDetailService {
 
     @Autowired
     private DgiSaleRepository dgiSaleRepository;
+
+    @Autowired
+    private PSBaseInfoRepository psBaseInfoRepository;
 
     //添加一条新的销售详细记录
     //流程：获取数采仪信息 以及合同信息 因为需要修改数采仪信息以及合同信息
@@ -72,5 +78,22 @@ public class DgiSaleDetailService {
         dgiSale.setOutAmount(outAmount);
         dgiInfo.setStatus(dgiSaleDetail.getStatusBefore());
         dgiSaleDetailRepository.deleteById(saleDetailId);
+    }
+
+    public DgiSaleDetail findAllSaleDetailInfo(Integer dgiId){
+        DgiSaleDetail detail = dgiSaleDetailRepository.findByDgiId(dgiId);
+        if(detail == null){
+            return detail;
+        }
+        DgiSale sale = dgiSaleRepository.getOne(detail.getSaleId());
+        PSBaseInfo psBaseInfo = psBaseInfoRepository.getOne(sale.getPsId());
+        detail.setPsName(psBaseInfo.getPsName());
+        detail.setPsAddress(psBaseInfo.getPsAddress());
+        detail.setPsRegion(psBaseInfo.getPsRegion());
+        detail.setContactMan(psBaseInfo.getContactMan());
+        detail.setContactTelPhone(psBaseInfo.getContactTelPhone());
+        detail.setOperator(sale.getOperator());
+        detail.setSaleContract(sale.getSaleContract());
+        return detail;
     }
 }

@@ -40,14 +40,4 @@ public class DgiSaleController extends BaseController {
         return ResultBean.success(dgiSaleService.findById(id));
     }
 
-    /**
-     * 根据企业信息获取企业下的所有合同信息
-     * @param psId 企业id
-     * @return
-     */
-    @GetMapping("/sale")
-    public Object findByPsId(@RequestParam("psId")Integer psId){
-        return ResultBean.success(dgiSaleService.findByPsId(psId));
-    }
-
 }

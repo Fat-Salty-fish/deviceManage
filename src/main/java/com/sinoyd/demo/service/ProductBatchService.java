@@ -33,11 +33,11 @@ public class ProductBatchService {
     @Autowired
     private PSBaseInfoRepository psBaseInfoRepository;
 
-    public void create(ProductBatch productBatch){
+    public void create(ProductBatch productBatch) {
         productBatchRepository.save(productBatch);
     }
 
-    public ProductBatch findById(Integer batchId){
+    public ProductBatch findById(Integer batchId) {
         ProductBatch productBatch = productBatchRepository.findById(batchId).orElse(null);
         Integer psId = productBatch.getPsId();
         PSBaseInfo psBaseInfo = psBaseInfoRepository.findById(psId).orElse(null);
@@ -45,10 +45,10 @@ public class ProductBatchService {
         return productBatch;
     }
 
-    public void findByPage(PageBean pageBean,BaseCriteria productBatchCriteria){
+    public void findByPage(PageBean pageBean, BaseCriteria productBatchCriteria) {
         pageBean.setEntityName(" ProductBatch a ");
         pageBean.setSelect(" Select a ");
-        commonRepository.findByPage(pageBean,productBatchCriteria);
+        commonRepository.findByPage(pageBean, productBatchCriteria);
         List<ProductBatch> productBatches = pageBean.getData();
         List<Integer> psIds = productBatches.stream().map(ProductBatch::getPsId).collect(Collectors.toList());
         List<PSBaseInfo> psBaseInfos = psBaseInfoRepository.findAllByIdIn(psIds);
@@ -57,12 +57,16 @@ public class ProductBatchService {
     }
 
     @Transactional
-    public void update(ProductBatch productBatch){
+    public void update(ProductBatch productBatch) {
+        System.out.println("即将修改批号信息");
+        if (productBatch.getId() == null) {
+            throw new NullPointerException("批号id为空 无法更新信息");
+        }
         productBatchRepository.save(productBatch);
     }
 
     @Transactional
-    public Integer delete(Collection productBatchIds){
+    public Integer delete(Collection productBatchIds) {
         return productBatchRepository.deleteAllByIdIn(productBatchIds);
     }
 

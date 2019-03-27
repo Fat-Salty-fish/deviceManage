@@ -59,7 +59,7 @@ public class PSBaseInfoController extends BaseController {
     /**
      * 更新企业信息
      *
-     * @param companyInfo 传入的企业信息 包括企业id 若没有id则会进行报错
+     * @param companyInfo 传入的企业信息 包括企业id 若没有id则会提示报错
      * @return 返回状态码、消息 不返回传入的企业信息 状态码为0表示更新成功
      */
     @PutMapping("")
@@ -77,6 +77,11 @@ public class PSBaseInfoController extends BaseController {
     @DeleteMapping("")
     public Object delete(@RequestBody Collection<Integer> companyInfoIds) {
         return ResultBean.success(psBaseInfoService.delete(companyInfoIds));
+    }
+
+    @GetMapping("/{psId}/sale")
+    public Object findSaleInfos(@PathVariable("psId")Integer psId){
+        return ResultBean.success(psBaseInfoService.findSaleInfos(psId));
     }
 
 }

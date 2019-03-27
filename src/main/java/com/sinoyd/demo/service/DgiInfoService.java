@@ -7,7 +7,6 @@ import com.sinoyd.demo.entity.ProductBatch;
 import com.sinoyd.demo.repository.DgiInfoRepository;
 import com.sinoyd.demo.repository.PSBaseInfoRepository;
 import com.sinoyd.demo.repository.ProductBatchRepository;
-import net.bytebuddy.pool.TypePool;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,10 +14,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Stream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * @Description
@@ -58,19 +55,25 @@ public class DgiInfoService {
     //根据id或dgiCode获取数采仪全部信息 如果输入的参数为11为 则认为传入的是dgiCode 否则认为传入的是id
     //返回给前端时同时要注入数采仪名称与数采仪批号
     public DgiInfo findByCode(String idOrCode) {
-        DgiInfo result ;
+        DgiInfo result;
         ProductBatch batch;
-        PSBaseInfo psBaseInfo ;
+        PSBaseInfo psBaseInfo;
         if (idOrCode.length() == 11) {
             result = dgiInfoRepository.findByDgiCode(idOrCode);
         } else {
-            result = dgiInfoRepository.findById(Integer.getInteger(idOrCode)).orElse(null);
+            Integer id = Integer.valueOf(idOrCode);
+            result = dgiInfoRepository.getOne(id);
         }
-        batch = productBatchRepository.getOne(result.getBatchId());
-        psBaseInfo = psBaseInfoRepository.getOne(result.getPsId());
+        if(result == null){
+            return null;
+        }
+        batch = productBatchRepository.findById(result.getBatchId()).orElse(null);
+        psBaseInfo = psBaseInfoRepository.findById(result.getPsId()).orElse(null);
         result.setBatchCode(batch.getBatchNumber());
         result.setDgiName(batch.getDgiName());
         result.setPsName(psBaseInfo.getPsName());
+        result.setContactMan(psBaseInfo.getContactMan());
+        result.setContactTelPhone(psBaseInfo.getContactTelPhone());
         return result;
     }
 
@@ -84,9 +87,28 @@ public class DgiInfoService {
     //获取某个批号以及主板对应的数采仪详细信息
     public Page<DgiInfo> findDetailByPage(DgiInfoCriteria criteria) {
         PageRequest pageRequest = PageRequest.of(criteria.getPage() - 1, criteria.getRows());
-        Page<DgiInfo> page = dgiInfoRepository.findDetailInfo(criteria.getPsId(), criteria.getMainBoardModel(),
-                criteria.getDgiCodeOrBatchNumber(), criteria.getStartTime(),
-                criteria.getEndTime(), criteria.getStatus(), pageRequest);
+        String startDate = criteria.getStartTime();
+        String endDate = criteria.getEndTime();
+        if (StringUtils.isBlank(startDate)) {
+            startDate = "1970-01-01";
+        }
+        if (StringUtils.isBlank(endDate)) {
+            endDate = "9999-12-31";
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Page<DgiInfo> page = null;
+        try {
+            page = dgiInfoRepository.findDetailInfo(
+                    criteria.getPsId(),
+                    criteria.getMainBoardModel(),
+                    "%" + criteria.getDgiCode() + "%",
+                    criteria.getBatchId(),
+                    simpleDateFormat.parse(startDate),
+                    simpleDateFormat.parse(endDate),
+                    criteria.getStatus(), pageRequest);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return page;
     }
 

@@ -39,4 +39,14 @@ public class DgiSaleDetailController extends BaseController {
         dgiSaleDetailService.delete(saleDetailId);
         return ResultBean.success();
     }
+
+    /**
+     * 根据数采仪信息获取数采仪的销售详情信息
+     * @param dgiId 数采仪id
+     * @return  数采仪销售详情信息
+     */
+    @GetMapping("/{dgiId}/saleDetail")
+    public Object findAll(@PathVariable("dgiId")Integer dgiId){
+        return ResultBean.success(dgiSaleDetailService.findAllSaleDetailInfo(dgiId));
+    }
 }

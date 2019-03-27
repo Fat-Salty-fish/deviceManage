@@ -22,7 +22,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 public class DgiTest implements BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer dgiId;//数采仪id
     @CreatedBy

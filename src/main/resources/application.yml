@@ -27,16 +27,11 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
 
 
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+
 server:
   port: 9999
   tomcat:
     uri-encoding: utf-8
 
-
-#
-#security:
-#  basic:
-#    enabled: false
-#  user:
-#    name: admin
-#    password: 123

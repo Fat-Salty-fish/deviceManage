@@ -57,7 +57,7 @@ public class ProductBatchController extends BaseController {
 
     /**
      * 更新一条数采仪批号信息
-     * @param productBatch  要更新的数采仪批号信息
+     * @param productBatch  要更新的数采仪批号信息 传入信息需包含批号id 不包含批号id会提示报错
      * @return  返回状态码、消息 不包括传入的数采仪批号信息 状态码为0表示更新成功
      */
     @PutMapping("")

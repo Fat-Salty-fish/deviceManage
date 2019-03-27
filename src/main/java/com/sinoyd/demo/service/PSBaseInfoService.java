@@ -1,7 +1,9 @@
 package com.sinoyd.demo.service;
 
 import com.sinoyd.demo.criteria.PSBaseInfoCriteria;
+import com.sinoyd.demo.entity.DgiSale;
 import com.sinoyd.demo.entity.PSBaseInfo;
+import com.sinoyd.demo.repository.DgiSaleRepository;
 import com.sinoyd.demo.repository.PSBaseInfoRepository;
 import com.sinoyd.frame.base.repository.CommonRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -29,9 +31,13 @@ public class PSBaseInfoService {
     @Autowired
     private PSBaseInfoRepository psBaseInfoRepository;
 
+    @Autowired
+    private DgiSaleRepository dgiSaleRepository;
+
     public void create(PSBaseInfo companyInfo) {
         psBaseInfoRepository.save(companyInfo);
     }
+
 
     public PSBaseInfo findById(Integer companyId) {
         return psBaseInfoRepository.findById(companyId).orElse(null);
@@ -56,6 +62,7 @@ public class PSBaseInfoService {
 
     @Transactional
     public void update(PSBaseInfo companyInfo) {
+        System.out.println("即将修改企业信息");
         if (companyInfo.getId() == null) {
             throw new NullPointerException("公司id为空 无法更新信息");
         }
@@ -67,5 +74,9 @@ public class PSBaseInfoService {
         List<PSBaseInfo> companyInfos = psBaseInfoRepository.findAllByIdIn(companyeInfoIds);
         int deleteNum = (int) companyInfos.stream().filter(company -> !company.getIsDeleted()).peek(company -> company.setIsDeleted(true)).count();
         return deleteNum;
+    }
+
+    public List<DgiSale> findSaleInfos(Integer psId){
+        return dgiSaleRepository.findAllByPsId(psId);
     }
 }

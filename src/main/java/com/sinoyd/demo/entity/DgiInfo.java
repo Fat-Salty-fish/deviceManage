@@ -1,10 +1,15 @@
 package com.sinoyd.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.sinoyd.frame.base.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -13,18 +18,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
 @Table(name = "DgiInfo")//数采仪基本信息
 @Entity
-@Setter
 @Getter
+@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @EntityListeners(AuditingEntityListener.class)
-public class DgiInfo implements BaseEntity {
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
+public class DgiInfo implements BaseEntity{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer psId;//厂商企业id
     private Integer batchId;//批次id
@@ -46,6 +53,11 @@ public class DgiInfo implements BaseEntity {
     @Transient
     private String batchCode;   //数采仪批次号 用于前端展示
 
+    @Transient
+    private String contactMan;//联系人
+    @Transient
+    private Long contactTelPhone;//联系方式
+
 
     public DgiInfo(Integer batchId, String mainBoardModel, Integer psId, Long count, String dgiName, String psName) {
         this.batchId = batchId;
@@ -57,12 +69,15 @@ public class DgiInfo implements BaseEntity {
         this.psName = psName;
     }
 
-    public DgiInfo(Integer id, Integer batchId, String mainBoardModel, Integer psId, String dgiName) {
+    public DgiInfo(Integer id, Integer batchId,String dgiCode, String mainBoardModel, Integer psId,Integer status, String dgiName,String batchCode) {
         this.id = id;
         this.batchId = batchId;
+        this.dgiCode = dgiCode;
         this.mainBoardModel = mainBoardModel;
         this.psId = psId;
         this.dgiName = dgiName;
+        this.batchCode = batchCode;
+        this.status = status;
     }
 
 

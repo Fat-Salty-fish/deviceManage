@@ -64,6 +64,7 @@ public class DgiInfoController extends BaseController {
      */
     @GetMapping("")
     public Object findDetailByPage(DgiInfoCriteria dgiInfoCriteria) {
+        System.out.println(dgiInfoCriteria);
         return ResultBean.success(dgiInfoService.findDetailByPage(dgiInfoCriteria));
     }
 

@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @create 2019-03-05 16:56
  */
 public interface DgiSaleDetailRepository extends JpaRepository<DgiSaleDetail,Integer> {
+    DgiSaleDetail findByDgiId(Integer dgiId);
 }

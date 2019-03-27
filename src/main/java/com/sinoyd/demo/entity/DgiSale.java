@@ -24,7 +24,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 public class DgiSale implements BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer psId;//购买企业id
     @CreatedBy

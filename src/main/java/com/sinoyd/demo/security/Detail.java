@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-
+//
 //此对象将保存在redis中
 //用户进行登录时 凭借token解析 获取id 从redis中获取token 匹配通过后根据id获取用户信息
 //得到的就是此对象

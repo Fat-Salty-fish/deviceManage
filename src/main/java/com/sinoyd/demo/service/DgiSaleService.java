@@ -36,9 +36,4 @@ public class DgiSaleService {
     public DgiSale findById(Integer id){
         return dgiSaleRepository.getOne(id);
     }
-
-    //根据公司psid获取公司下的全部合同信息
-    public List<DgiSale> findByPsId(Integer psId) {
-        return dgiSaleRepository.findAllByPsId(psId);
-    }
 }

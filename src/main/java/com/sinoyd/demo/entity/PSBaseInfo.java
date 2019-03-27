@@ -21,7 +21,7 @@ import java.util.*;
 @EntityListeners(AuditingEntityListener.class)
 public class PSBaseInfo implements BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String psName;//企业名称
     private String psRegion;//所在地区
