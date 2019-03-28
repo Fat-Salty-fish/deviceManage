@@ -76,6 +76,7 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
         logger.warn("请求Headers为:" + headers.toString());
         //
         if (StringUtils.isNotBlank(headerToken) && !headerToken.equals("null") ) {
+            logger.info("token信息不为空");
             //传入service中
             String userName = (String) myToken.parseJWT(headerToken).get("name");
             if (StringUtils.isNotBlank(headerToken) && StringUtils.isNotBlank(userName)) {
@@ -93,13 +94,17 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
                         SecurityContextHolder.getContext().setAuthentication(authentication);
                     }else {
                         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-                        logger.info("用户已经存在:"+((Detail)authentication.getPrincipal()).getUsername());
+//                        logger.info("用户已经存在:"+((Detail)authentication.getPrincipal()).getUsername());
                     }
                 } else {
                     logger.info("在redis中未找到对应的token 请求失败 请重新登录");
                     throw new BadCredentialsException("Token已经失效 请重新登录");
                 }
             }
+        }else {
+            logger.info("token信息为空");
+            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(null,null,null);
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }

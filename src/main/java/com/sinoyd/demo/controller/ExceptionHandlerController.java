@@ -20,23 +20,23 @@ public class ExceptionHandlerController {
      * @param e
      * @return  对截获的异常进行处理统一返回
      */
-    @ExceptionHandler
-    @ResponseBody
-    public Object nullPointerExceptionHandler(NullPointerException e){
-        return ResultBean.error(1,e);
-    }
+//    @ExceptionHandler
+//    @ResponseBody
+//    public Object nullPointerExceptionHandler(NullPointerException e){
+//        return ResultBean.error(1,e);
+//    }
 
-    @ExceptionHandler
-    @ResponseBody
-    public Object MalformedJwtExceptionHandler(MalformedJwtException e){
-        return ResultBean.error(1, "token解析错误 请先登录获取token");
-    }
-
-    @ExceptionHandler
-    @ResponseBody
-    public Object IllegalArgumentHandler(IllegalArgumentException e){
-        return ResultBean.error(2,e);
-    }
+//    @ExceptionHandler
+//    @ResponseBody
+//    public Object MalformedJwtExceptionHandler(MalformedJwtException e){
+//        return ResultBean.error(1, "token解析错误 请先登录获取token");
+//    }
+//
+//    @ExceptionHandler
+//    @ResponseBody
+//    public Object IllegalArgumentHandler(IllegalArgumentException e){
+//        return ResultBean.error(2,e);
+//    }
 
     /**
      * 截获其他异常 并作出相应反应

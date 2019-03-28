@@ -6,33 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7451264b-d9e6-436c-b73e-0882effb0ad3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/DgiInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/DgiInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/DgiSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/DgiSaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/DgiSaleDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/DgiSaleDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/PSBaseInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/PSBaseInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ProductBatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ProductBatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/criteria/DgiInfoCriteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/criteria/DgiInfoCriteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiApply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiRepair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiRepair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiSaleDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiSaleDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/PSBaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/PSBaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/ProductBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/ProductBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiInfoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiInfoRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiSaleDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiSaleDetailRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/resultBean/ResultBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/resultBean/ResultBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ExceptionHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ExceptionHandlerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/AccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/AccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiSaleDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiSaleDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiSaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiSaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/PSBaseInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/PSBaseInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/ProductBatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/ProductBatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,11 +34,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiInfoService.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2550">
-              <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+            <state relative-caret-position="150">
+              <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/Detail.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/ProductBatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,44 +74,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1890">
-              <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
-              <folding>
-                <element signature="e#2815#2816#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/PSBaseInfoController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ExceptionHandlerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="37" column="37" lean-forward="true" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-              <folding>
-                <element signature="e#1015#1016#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="33" column="2" lean-forward="true" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -116,35 +85,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/token/MyToken.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
+            <state relative-caret-position="1500">
               <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/dingding/DingDingTools.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2970">
-              <caret line="113" column="30" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/AccessController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/AccessService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="60" column="25" lean-forward="true" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+            <state relative-caret-position="240">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -223,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiApplyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiSaleRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/BaseAuditor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ExceptionHandlerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiApply.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiRepair.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiSale.java" />
@@ -234,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ProductBatchController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/MyAuditorAware.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/Detail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/criteria/DgiInfoCriteria.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiSaleDetailRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiSaleDetail.java" />
@@ -250,8 +199,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiSaleDetailService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiInfoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/AccessService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ExceptionHandlerController.java" />
       </list>
     </option>
   </component>
@@ -293,6 +244,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,97 +300,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="criteria" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dingding" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="resultBean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="deviceManage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sinoyd" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="token" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="deviceManage" type="b2602c69:ProjectViewProjectNode" />
@@ -451,7 +313,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -557,7 +418,8 @@
       <workItem from="1553477553947" duration="391000" />
       <workItem from="1553478078671" duration="23239000" />
       <workItem from="1553560592862" duration="14847000" />
-      <workItem from="1553647158823" duration="7638000" />
+      <workItem from="1553647158823" duration="15646000" />
+      <workItem from="1553733262171" duration="3317000" />
     </task>
     <servers />
   </component>
@@ -588,13 +450,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="366211000" />
+    <option name="totallyTimeSpent" value="377536000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.496994" visible="true" weight="0.27120823" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.496994" visible="true" weight="0.2744216" />
       <window_info id="Structure" order="1" sideWeight="0.50300604" side_tool="true" weight="0.20886889" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -604,7 +466,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32839838" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49614397" visible="true" weight="0.58008075" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49614397" visible="true" weight="0.3499327" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.23553163" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -644,27 +506,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiRepair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/DgiTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/DgiTestService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -679,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/ProductBatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/DemoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -697,16 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" column="39" selection-start-line="2" selection-end-line="2" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -995,6 +819,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.4.RELEASE/spring-security-config-5.1.4.RELEASE.jar!/org/springframework/security/config/annotation/web/configurers/ExpressionUrlAuthorizationConfigurer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="193" column="86" selection-start-line="193" selection-start-column="86" selection-end-line="193" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/io/Serializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.4.RELEASE/spring-security-core-5.1.4.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetails.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/Detail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/entity/ProductBatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/token/MyToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/AccessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/repository/DgiInfoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
@@ -1002,42 +885,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/token/MyToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/Detail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/controller/ExceptionHandlerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="37" column="37" lean-forward="true" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-          <folding>
-            <element signature="e#1015#1016#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="33" column="2" lean-forward="true" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/security/JwtAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sinoyd/demo/service/AccessService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="60" column="25" lean-forward="true" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+        <state relative-caret-position="150">
+          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
         </state>
       </provider>
     </entry>
